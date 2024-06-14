@@ -138,7 +138,7 @@ static void python_mkshell_ihandler_cb(struct incident *i, void *ctx)
 		Py_DECREF(module);
 		PyObject *func = PyObject_GetAttrString(module, "remoteshell");
 		PyObject *arglist = Py_BuildValue("()");
-		PyObject *r = PyEval_CallObject(func, arglist);
+		PyObject *r = PyObject_CallObject(func, arglist);
 		Py_DECREF(arglist);
 		g_debug("r %p", r);
 		struct head
